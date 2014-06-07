@@ -31,10 +31,12 @@ class TinyLetter:
  
         soup = BeautifulSoup(text)
         title = soup.title.string
+        title = title.strip()
 
         byline = soup.findAll('span', {'class': 'byline'})
         byline = byline[0]
         byline = byline.string
+        byline = byline.strip()
 
         items = []
 

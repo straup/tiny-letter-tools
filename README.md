@@ -20,9 +20,9 @@ Miscellaneous tools for doing things with Tiny Letter mailing lists.
 	<?xml version="1.0" encoding="iso-8859-1"?>
 	<rss version="2.0">
 	  <channel>
-	    <title> Things That Have Caught My Attention by danhon </title>
+	    <title>Things That Have Caught My Attention by danhon</title>
 	    <link>https://tinyletter.com/danhon/</link>
-	    <description> by danhon </description>
+	    <description>by danhon</description>
 	    <lastBuildDate>Sat, 07 Jun 2014 12:50:04 GMT</lastBuildDate>
 	    <item>
 	      <title>Episode Ninety Seven: That Most Killer Of Deals; Need To Know</title>
