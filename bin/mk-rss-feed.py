@@ -76,10 +76,15 @@ class TinyLetter:
             logging.error("Failed to parse text, because %s" % e)
             return items
 
-        link = url
-
         # Insert sound of old timers chuckling here...
 
+        try:
+            link = soup.find('meta', {'name': 'og:url'})
+            link = link['content']
+        except Exception, e:
+            logging.error("Failed to parse link, because %s" % e)
+            link = url
+            
         try:
             title = soup.find('meta', {'name': 'twitter:title'})
             title = title['content']

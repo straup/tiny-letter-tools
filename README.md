@@ -26,7 +26,7 @@ Miscellaneous tools for doing things with Tiny Letter mailing lists.
 	    <lastBuildDate>Sat, 07 Jun 2014 12:50:04 GMT</lastBuildDate>
 	    <item>
 	      <title>Episode Ninety Seven: That Most Killer Of Deals; Need To Know</title>
-	      <link>https://tinyletter.com/danhon/letters/</link>
+	      <link>http://tinyletter.com/danhon/letters/episode-ninety-seven-that-most-killer-of-deals-need-to-know</link>
 	      <description>I got a bunch of notes back about what I wrote the other day about my depression. I don't really mind writing about it, and I think it's a tragedy that more people don't understand how someone can loo</description>
 	      <guid>a3f6a69df8a62e61951f25f3dc1d06f6</guid>
 	      <pubDate>Sat, 07 Jun 2014 00:00:00 GMT</pubDate>
