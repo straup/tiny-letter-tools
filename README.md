@@ -46,6 +46,8 @@ Miscellaneous tools for doing things with Tiny Letter mailing lists.
 * https://pypi.python.org/pypi/BeautifulSoup/
 * https://pypi.python.org/pypi/PyRSS2Gen/
 
+If you're not in a position to install these [from source](https://pypi.python.org/) copies of both libraries can be found in the `dependencies` folder. Simply copy them in to the `bin` directory and you should be good to go.
+
 ## See also
 
 * http://tinyletter.com
