@@ -24,8 +24,6 @@ Miscellaneous tools for doing things with Tiny Letter mailing lists.
 	    <link>https://tinyletter.com/danhon/</link>
 	    <description> by danhon </description>
 	    <lastBuildDate>Sat, 07 Jun 2014 12:50:04 GMT</lastBuildDate>
-	    <generator>PyRSS2Gen-1.0.0</generator>
-	    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
 	    <item>
 	      <title>Episode Ninety Seven: That Most Killer Of Deals; Need To Know</title>
 	      <link>https://tinyletter.com/danhon/letters/</link>
@@ -41,7 +39,7 @@ Miscellaneous tools for doing things with Tiny Letter mailing lists.
 	      <pubDate>Fri, 06 Jun 2014 00:00:00 GMT</pubDate>
 	    </item>
 	
-	<-- and so on.. -->
+	<-- and so on... -->
 
 ### Dependencies
 
