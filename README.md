@@ -44,7 +44,7 @@ Miscellaneous tools for doing things with Tiny Letter mailing lists.
 ### Dependencies
 
 * https://pypi.python.org/pypi/BeautifulSoup/
-* PyRSS2Gen
+* https://pypi.python.org/pypi/PyRSS2Gen/
 
 ## See also
 
