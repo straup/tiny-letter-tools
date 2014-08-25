@@ -36,7 +36,9 @@ class TinyLetter:
         byline = soup.findAll('span', {'class': 'byline'})
         byline = byline[0]
         byline = byline.string
-        byline = byline.strip()
+
+        if byline:
+            byline = byline.strip()
 
         items = []
 
@@ -90,7 +92,12 @@ class TinyLetter:
             title = title['content']
         except TypeError, e:
             title = soup.find('meta', {'property': 'og:title'})
-            title = title['content']
+            
+            if title:
+                title = title['content']
+            else:
+                title = url
+
         except Exception, e:
             logging.error("Failed to parse title, because %s" % e)
             title = url
@@ -100,7 +107,10 @@ class TinyLetter:
             desc = desc['content']
         except TypeError, e:
             desc = soup.find('meta', {'property': 'og:description'})
-            desc = desc['content']
+
+            if desc:
+                desc = desc['content']
+                
         except Exception, e:
             logging.error("Failed to parse description, because %s" % e)
             desc = ""
