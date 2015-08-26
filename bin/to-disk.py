@@ -31,17 +31,29 @@ if __name__ == '__main__':
 
     for url in args:
 
+        newsletter = os.path.basename(url)
+
+        root = os.path.join(dest, newsletter)
+
+        if not os.path.exists(root):
+            os.makedirs(root)
+
         tl = tinyletter.TinyLetter(url)
 
         for item in tl.as_list(**kwargs):
 
             link = item.get('link')
+
+            if not link:
+                logging.warning("bogus link, skipping")
+                continue
+
             base = os.path.basename(link)
             
             ymd = item['date'].strftime("%Y%m%d")
             fname = "%s-%s.md" % (ymd, base)
 
-            path = os.path.join(dest, fname)
+            path = os.path.join(root, fname)
             logging.debug("write %s" % path)
 
             try:
@@ -49,4 +61,4 @@ if __name__ == '__main__':
                 tl.as_markdown_item(item, fh)
                 fh.close()
             except Exception, e:
-                logging.error("failed to write %s, because %s" % (path, e)
+                logging.error("failed to write %s, because %s" % (path, e))
