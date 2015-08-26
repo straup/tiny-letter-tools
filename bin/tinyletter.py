@@ -101,6 +101,27 @@ class TinyLetter:
 
         fh.write("--\n\n")
 
+    # please rename me...
+
+    def as_html_item(self, item, fh):
+
+        title = item.get('title', 'INVISIBLE NEWSLETTER TITLE')
+        link = item.get('link', 'INVISIBLE NEWSLETTER LINK')
+
+        fh.write("""<!DOCTYPE html><html><head><title>%s</title>""" % title)
+        fh.write("""<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="referrer" content="origin"><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><meta name="HandheldFriendly" content="true" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />""")
+        fh.write("""</head><body>""")
+
+        title = title.encode("utf-8")
+        link = link.encode("utf-8")
+
+        fh.write("<h1>%s <small>%s</small></h1>" % (title, link))
+        
+        for ln in item.get('text', []):
+            fh.write("<p>%s</p>" % ln.encode("utf-8"))
+
+        fh.write("</body></html>")
+
     def as_list(self, **kwargs):
 
         page = self.ua.open(self.url) 

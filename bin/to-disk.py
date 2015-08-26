@@ -12,6 +12,7 @@ if __name__ == '__main__':
 
     parser.add_option('--items', dest='items', default=15, help='')
     parser.add_option('--dest', dest='dest', default=None, help='')
+    parser.add_option('--html', dest='html', action='store_true', default=False, help='')
     parser.add_option('--verbose', dest='verbose', help='Be chatty', action='store_true', default=False)
 
     options, args = parser.parse_args()
@@ -53,12 +54,20 @@ if __name__ == '__main__':
             ymd = item['date'].strftime("%Y%m%d")
             fname = "%s-%s.md" % (ymd, base)
 
+            if options.html:
+                fname = "%s-%s.html" % (ymd, base)
+
             path = os.path.join(root, fname)
             logging.debug("write %s" % path)
 
             try:
                 fh = open(path, 'w')
-                tl.as_markdown_item(item, fh)
+
+                if options.html:
+                    tl.as_html_item(item, fh)
+                else:
+                    tl.as_markdown_item(item, fh)
+
                 fh.close()
             except Exception, e:
                 logging.error("failed to write %s, because %s" % (path, e))
