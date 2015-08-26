@@ -13,7 +13,7 @@ if __name__ == '__main__':
     parser.add_option('--verbose', dest='verbose', help='Be chatty', action='store_true', default=False)
 
     options, args = parser.parse_args()
-
+    
     if options.verbose:
         logging.basicConfig(level=logging.DEBUG)
     else:
@@ -26,4 +26,4 @@ if __name__ == '__main__':
     for url in args:
 
         tl = tinyletter.TinyLetter(url)
-        tl.as_rss(fh, **kwargs)
+        tl.as_markdown(fh, **kwargs)
