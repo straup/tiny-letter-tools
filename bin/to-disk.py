@@ -49,6 +49,10 @@ if __name__ == '__main__':
                 logging.warning("bogus link, skipping")
                 continue
 
+            if len(item['text']) == 0:
+                logging.warning("missing text for %s, skipping" % link)
+                continue
+
             base = os.path.basename(link)
             
             ymd = item['date'].strftime("%Y%m%d")
