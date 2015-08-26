@@ -81,15 +81,7 @@ class TinyLetter:
 
         kwargs['entextify'] = True;
 
-        page = self.ua.open(self.url) 
-        text = page.read()
-        page.close()
- 
-        soup = BeautifulSoup(text)
-
-        letters = self.url + 'letters/'
-        
-        for item in self.extract(letters, **kwargs):
+        for item in self.as_list(**kwargs):
             
             title = item.get('title', 'INVISIBLE NEWSLETTER TITLE')
             link = item.get('link', 'INVISIBLE NEWSLETTER LINK')
@@ -104,6 +96,19 @@ class TinyLetter:
 
             fh.write("--\n\n")
 
+    def as_list(self, **kwargs):
+
+        page = self.ua.open(self.url) 
+        text = page.read()
+        page.close()
+ 
+        soup = BeautifulSoup(text)
+
+        letters = self.url + 'letters/'
+        
+        for item in self.extract(letters, **kwargs):
+            yield item
+
     # sudo make me a generator... (20150826/straup)
 
     def extract(self, url, **kwargs):
@@ -111,6 +116,8 @@ class TinyLetter:
         items = kwargs.get('items', [])
         max_items = kwargs.get('max_items', 15)
         entextify = kwargs.get('entextify', False)
+
+        max_items = int(max_items)
 
         logging.debug("parsing %s" % url)
 
