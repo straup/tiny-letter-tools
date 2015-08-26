@@ -82,19 +82,24 @@ class TinyLetter:
         kwargs['entextify'] = True;
 
         for item in self.as_list(**kwargs):
-            
-            title = item.get('title', 'INVISIBLE NEWSLETTER TITLE')
-            link = item.get('link', 'INVISIBLE NEWSLETTER LINK')
+            self.as_markdown_item(item, fh)
 
-            fh.write("# %s\n" % title)
-            fh.write("## %s\n" % link)
-            fh.write("\n")
+    # please rename me...
 
-            for ln in item.get('text', []):
-                fh.write(ln)
-                fh.write("\n\n")
+    def as_markdown_item(self, item, fh):
 
-            fh.write("--\n\n")
+        title = item.get('title', 'INVISIBLE NEWSLETTER TITLE')
+        link = item.get('link', 'INVISIBLE NEWSLETTER LINK')
+
+        fh.write("# %s\n" % title.encode("utf-8"))
+        fh.write("## %s\n" % link.encode("utf-8"))
+        fh.write("\n")
+        
+        for ln in item.get('text', []):
+            fh.write(ln.encode("utf-8"))
+            fh.write("\n\n")
+
+        fh.write("--\n\n")
 
     def as_list(self, **kwargs):
 
